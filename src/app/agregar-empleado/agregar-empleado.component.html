@@ -1,53 +1,56 @@
-
-<mat-card style="width: 500px; margin-top: 30px;">
-    <mat-card-content>
-        <div style="margin-top: 30px; margin-left: 30px;">
+<div class="center">
+  <div class="">
     
-           <form class="example-form" [formGroup]="form">
-                <div>
-                    <mat-form-field appearance="outline">
-                        <mat-label>Nombre</mat-label>
+<div class="card">
+  <div class="card-header"><h4>Agregar empleado</h4></div>
+  <div class="card-body">
+  
+         <form class="example-form" [formGroup]="form">
+              <div>
+                  <mat-form-field class="input" appearance="outline">
+                      <mat-label>Nombre</mat-label>
                         <input
-                          matInput
-                          formControlName ='name'
-                          placeholder="Nombre empleado"
-                        />
-                        <mat-hint style="color: red; margin-top: 0px;" *ngIf="form.get('name')?.touched && form.get('name')?.errors?.['required']">El nombre es requerido</mat-hint>
-                      </mat-form-field>
-                </div>
-                <div>
-                  <mat-form-field style="margin: 0px;" appearance="outline">
-                    <mat-label>Email</mat-label>
-                    <input
-                      matInput
-                      formControlName="email"
-                      placeholder="Email empleado"
-                    />
-                    <mat-hint style="color: red; margin-top: 0px;" *ngIf="form.get('email')?.touched && form.get('email')?.errors?.['required']">El email es requerido</mat-hint>
-                    <mat-hint style="color: red; margin-top: 0px;" *ngIf="form.get('email')?.touched && form.get('email')?.errors?.['email']">El email no es valido</mat-hint>
-                  </mat-form-field>
-                </div>
-                <div>
-                    
-                  <mat-form-field appearance="outline">
-                    <mat-label>Telefono</mat-label>
-                    <input
-                      matInput
-                      formControlName = 'phone'
-                      placeholder="Telefono empleado"
-                    />
-                  <mat-hint  style="color: red;" *ngIf="form.get('phone')?.touched && form.get('phone')?.errors?.['required']">El telefono es requerido</mat-hint>
-                  <mat-hint  style="color: red;" *ngIf="form.get('phone')?.touched && form.get('phone')?.errors?.['maxlength']">Maximo 10 numeros</mat-hint>
-                  <mat-hint  style="color: red;" *ngIf="form.get('phone')?.touched && form.get('phone')?.errors?.['minlength']">Minimo 10 numeros</mat-hint>
-                  <mat-hint  style="color: red;" *ngIf="form.get('phone')?.touched && form.get('phone')?.errors?.['pattern']">El campo solo permite valores numericos</mat-hint>
-                  </mat-form-field>
-                </div>
-                
-                <div>
-                    <button mat-raised-button type="submit" [disabled]="form.invalid" (click)="enviar()" color="primary">Enviar</button>
-                </div>
-           </form>
-            
-            </div>
-    </mat-card-content>
-  </mat-card>
+                        matInput
+                        formControlName ='name'
+                        placeholder="Nombre empleado"
+                      />
+                      <mat-hint style="color: red; margin-top: 0px;" *ngIf="form.get('name')?.touched && form.get('name')?.errors?.['required']">El nombre es requerido</mat-hint>
+                    </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field class="input" appearance="outline">
+                  <mat-label>Email</mat-label>
+                  <input
+                    matInput
+                    formControlName="email"
+                    placeholder="Email empleado"
+                  />
+                <mat-hint style="color: red; margin-top: 0px;" *ngIf="form.get('email')?.touched && form.get('email')?.errors?.['required']">El email es requerido</mat-hint>
+                <mat-hint style="color: red; margin-top: 0px;" *ngIf="form.get('email')?.touched && form.get('email')?.errors?.['email']">El email no es valido</mat-hint>
+                </mat-form-field>
+              </div>
+              <div>
+                  
+                <mat-form-field class="input" appearance="outline">
+                  <mat-label>Telefono</mat-label>
+                  <input
+                    matInput
+                    formControlName = 'phone'
+                    placeholder="Telefono empleado"
+                  />
+                <mat-hint  style="color: red;" *ngIf="form.get('phone')?.touched && form.get('phone')?.errors?.['required']">El telefono es requerido</mat-hint>
+                <mat-hint  style="color: red;" *ngIf="form.get('phone')?.touched && form.get('phone')?.errors?.['maxlength']">Maximo 10 numeros</mat-hint>
+                <mat-hint  style="color: red;" *ngIf="form.get('phone')?.touched && form.get('phone')?.errors?.['minlength']">Minimo 10 numeros</mat-hint>
+                <mat-hint  style="color: red;" *ngIf="form.get('phone')?.touched && form.get('phone')?.errors?.['pattern']">El campo solo permite valores numericos</mat-hint>
+                </mat-form-field>
+              </div>
+              
+              <div>
+                  <button class="input" mat-raised-button type="submit" [disabled]="form.invalid" (click)="enviar()" color="primary">Agregar</button>
+              </div>
+         </form>
+         
+        </div>
+</div>
+  </div>
+</div>
