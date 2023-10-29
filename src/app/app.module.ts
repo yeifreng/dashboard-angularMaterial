@@ -18,7 +18,12 @@ import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AgregarEmpleadoComponent } from './agregar-empleado/agregar-empleado.component';
+import { EditarEmpleadoComponent } from './editar-empleado/editar-empleado.component';
 import { ListaEmpleadoComponent } from './lista-empleado/lista-empleado.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -26,6 +31,7 @@ import { ListaEmpleadoComponent } from './lista-empleado/lista-empleado.componen
     NavigationMenuComponent,
     DashboardComponent,
     AgregarEmpleadoComponent,
+    EditarEmpleadoComponent,
     ListaEmpleadoComponent
   ],
   imports: [
@@ -44,7 +50,12 @@ import { ListaEmpleadoComponent } from './lista-empleado/lista-empleado.componen
     FormsModule,
     ReactiveFormsModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    AppRoutingModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
-import { FormControl, Validators, FormBuilder, FormGroup } from '@angular/forms';
+import { Validators, FormBuilder, FormGroup } from '@angular/forms';
+import { Empleado } from '../empleado';
+import { CrudServiceService } from '../crud-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-agregar-empleado',
@@ -8,28 +11,40 @@ import { FormControl, Validators, FormBuilder, FormGroup } from '@angular/forms'
 })
 export class AgregarEmpleadoComponent {
 
+
+
+
   form:FormGroup;
 
-  constructor(private fb:FormBuilder){ 
+
+  constructor(private fb:FormBuilder, private crudService: CrudServiceService, private router: Router){ 
     this.form = this.formulario();
+
+    console.log(this.form);
    }
 
   
 
   formulario(): FormGroup {
     
-    return this.form = this.fb.group({
-      name:['', Validators.required],
-      email:['', [Validators.required, Validators.email]],
-      phone:['', [Validators.required, Validators.maxLength(10), Validators.minLength(10), Validators.pattern(/^[1-9]\d{6,10}$/)]]
+    return this.fb.group({
+      document:['', [Validators.required, Validators.pattern(/^[1-9]\d{0,10}$/), Validators.minLength(6)]],
+      nameUser:['', [Validators.required, Validators.minLength(3)]],
+      lastName:['', Validators.required],
+      phone:['', [Validators.required, Validators.maxLength(10), Validators.minLength(10), Validators.pattern(/^[1-9]\d{0,10}$/)]],
+      addressUser:['', Validators.required]
 
     });
   }
 
 
-
-  enviar(){
-    console.log(this.form.value.name, this.form.value.email, this.form.value.phone);
+  addEmployee(){
+    
+    let miEmpleado = this.form.value;
+    console.log(miEmpleado);
+    this.crudService.agregarEmpleado(miEmpleado).subscribe(respuesta=>{
+    this.router.navigate(['lista-empleado']);
+    });
   }
 
 }
